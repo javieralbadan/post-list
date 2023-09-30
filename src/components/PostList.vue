@@ -7,7 +7,7 @@ const posts = getPosts();
 
 <template>
 	<div class="flex flex-col">
-		<h1 class="text-xl">Post List component</h1>
+		<h1 class="text-xl text-white">{{ $t('app.title') }}</h1>
 		<PostItem v-for="item in posts" :key="item.id" :post="item" />
 	</div>
 </template>
