@@ -31,7 +31,7 @@ module.exports = {
 		'vue/html-indent': 'off',
 		'vue/html-self-closing': 'off',
 		'vue/singleline-html-element-content-newline': 'off',
-		'vue/attributes-order': ['warn', { alphabetical: true } ],
-		'vue/max-attributes-per-line': ['error', { 'multiline': { 'max': 3 } }],
+		'vue/attributes-order': ['warn', { alphabetical: true }],
+		'vue/max-attributes-per-line': ['error', { multiline: { max: 3 } }],
 	},
 };

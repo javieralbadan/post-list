@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import type ActionItem from '@/types/ActionItem';
 
-const mockActions : Array<ActionItem> = [
+const mockActions: Array<ActionItem> = [
 	{
 		id: 0,
 		indexFrom: 0,
@@ -25,6 +25,6 @@ const mockActions : Array<ActionItem> = [
 
 export const useHistoryStore = defineStore('actionsHistory', () => {
 	const actions = ref(mockActions);
-	
+
 	return { actions };
 });

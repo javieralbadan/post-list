@@ -1,4 +1,3 @@
-
 import type PostItem from '@/types/PostItem';
 
 export const getPosts = (): Array<PostItem> => {

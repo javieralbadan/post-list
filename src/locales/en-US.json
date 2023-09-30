@@ -1,6 +1,6 @@
 {
-    "app.title": "Sortable Post List",
-    "actionItem.commitedText": "Moved {postTitle} from index {indexFrom} to index {indexTo}",
-    "actionItem.redoButtonText": "Time travel",
-    "actionsHistory.title": "List of actions commited"
+	"app.title": "Sortable Post List",
+	"actionItem.commitedText": "Moved {postTitle} from index {indexFrom} to index {indexTo}",
+	"actionItem.redoButtonText": "Time travel",
+	"actionsHistory.title": "List of actions commited"
 }

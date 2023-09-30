@@ -2,16 +2,16 @@
 import type PostItem from '@/types/PostItem';
 
 interface Props {
-    post: PostItem;
+	post: PostItem;
 }
 
 defineProps<Props>();
 </script>
 
 <template>
-    <div class="h-20 px-2 my-2 flex items-center rounded shadow-lg bg-white font-light">
-        {{ post.title }}
-    </div>
+	<div class="my-2 flex h-20 items-center rounded bg-white px-2 font-light shadow-lg">
+		{{ post.title }}
+	</div>
 </template>
 
 <style scoped></style>

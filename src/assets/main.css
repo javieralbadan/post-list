@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 html {
-    background-color: #F0F0F0;
-    position: relative;
+	background-color: #f0f0f0;
+	position: relative;
 }
 
 html::before {
-    position: absolute;
-    z-index: -1;
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 200px 1000px 0 0;
-    border-color: #7666af transparent transparent transparent;
+	position: absolute;
+	z-index: -1;
+	content: '';
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 200px 1000px 0 0;
+	border-color: #7666af transparent transparent transparent;
 }

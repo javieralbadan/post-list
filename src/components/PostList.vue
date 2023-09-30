@@ -2,13 +2,17 @@
 import PostItem from '@/components/PostItem.vue';
 import { getPosts } from '@/services/posts';
 
-const posts = getPosts(); 
+const posts = getPosts();
 </script>
 
 <template>
 	<div class="flex flex-col">
 		<h1 class="text-xl text-white">{{ $t('app.title') }}</h1>
-		<PostItem v-for="item in posts" :key="item.id" :post="item" />
+		<PostItem
+            v-for="item in posts"
+            :key="item.id"
+            :post="item"
+        />
 	</div>
 </template>
 

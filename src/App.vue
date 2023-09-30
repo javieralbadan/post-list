@@ -4,8 +4,8 @@ import ActionsHistory from './components/ActionsHistory.vue';
 </script>
 
 <template>
-	<main class="w-full max-w-4xl flex flex-wrap mx-auto py-6 flex-col sm:flex-row">
-		<PostList class="w-full sm:w-3/6 pr-8" />
+	<main class="mx-auto flex w-full max-w-4xl flex-col flex-wrap py-6 sm:flex-row">
+		<PostList class="w-full pr-8 sm:w-3/6" />
 		<ActionsHistory class="w-full sm:w-3/6" />
 	</main>
 </template>

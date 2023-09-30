@@ -14,7 +14,7 @@ const i18n = createI18n<[MessageSchema], 'en-US'>({
 	messages: {
 		'en-US': enUS,
 	},
-});  
+});
 
 app.use(createPinia());
 app.use(i18n);
