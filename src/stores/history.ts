@@ -8,12 +8,25 @@ export const useHistoryStore = defineStore('actionsHistory', () => {
 	const postsStore = usePostStore();
 
 	const addAction = (action: ActionItem) => {
-		actions.value.push(action);
+		actions.value.unshift(action);
 	};
 
-	const redoAction = (action: ActionItem, newIndex: number) => {
-		actions.value = actions.value.splice(newIndex, 1);
-		postsStore.reorderItems(action.post, newIndex);
+	const removeAction = (index: number) => {
+		actions.value.splice(index, 1);
+	};
+
+	const redoAction = (index: number) => {
+		let currentIndex = index;
+
+		while (currentIndex >= 0) {
+			const actionItem = actions.value[currentIndex];
+			const newIndexFrom = actionItem.indexTo;
+			const newIndexTo = actionItem.indexFrom;
+			postsStore.reorderItems(actionItem.post, newIndexFrom, newIndexTo);
+			removeAction(currentIndex);
+
+			currentIndex--;
+		};
 	};
 
 	return { actions, addAction, redoAction };
