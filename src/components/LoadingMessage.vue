@@ -3,8 +3,8 @@ import IconLoading from '@/components/icons/IconLoading.vue';
 </script>
 
 <template>
-	<div class="m-6 flex flex-col p-6 w-fit mx-auto items-center justify-center">
-        <IconLoading class="w-16 h-16 m-4 animate-spin" />
+	<div class="m-6 mx-auto flex w-fit flex-col items-center justify-center p-6">
+		<IconLoading class="m-4 h-16 w-16 animate-spin" />
 		{{ $t('app.loading') }}
 	</div>
 </template>
