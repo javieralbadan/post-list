@@ -1,7 +1,7 @@
 import { setActivePinia, createPinia } from 'pinia';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { usePostStore } from '../posts';
-import { MOCK_POST_2, MOCK_POSTS_LIST } from '../__mocks__/index';
+import { MOCK_POSTS_LIST } from '../__mocks__/index';
 
 describe('usePostStore', () => {
 	it('should return an empty initial array', () => {
@@ -23,14 +23,24 @@ describe('usePostStore', () => {
 		expect(postStore.posts[4].id).toEqual(5);
 	});
 
-	it('should reorder of the array', () => {
+	it('should do not reorder an empty posts array', () => {
+		setActivePinia(createPinia());
+		const postStore = usePostStore();
+
+		const mockIndexFrom = 1;
+		const mockIndexTo = 0;
+		postStore.reorderItems(mockIndexFrom, mockIndexTo);
+		expect(postStore.posts).toHaveLength(0);
+	});
+
+	it('should reorder the array', () => {
 		setActivePinia(createPinia());
 		const postStore = usePostStore();
 		postStore.setItems(MOCK_POSTS_LIST);
-		
+
 		const mockIndexFrom = 1;
 		const mockIndexTo = 0;
-		postStore.reorderItems(MOCK_POST_2, mockIndexFrom, mockIndexTo);
+		postStore.reorderItems(mockIndexFrom, mockIndexTo);
 
 		expect(postStore.posts[0].id).toEqual(2);
 		expect(postStore.posts[1].id).toEqual(1);

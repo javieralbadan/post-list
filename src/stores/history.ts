@@ -20,13 +20,17 @@ export const useHistoryStore = defineStore('actionsHistory', () => {
 
 		while (currentIndex >= 0) {
 			const actionItem = actions.value[currentIndex];
+			if (!actions.value.length || !actionItem) {
+				break;
+			}
+
 			const newIndexFrom = actionItem.indexTo;
 			const newIndexTo = actionItem.indexFrom;
-			postsStore.reorderItems(actionItem.post, newIndexFrom, newIndexTo);
+			postsStore.reorderItems(newIndexFrom, newIndexTo);
 			removeAction(currentIndex);
 
 			currentIndex--;
-		};
+		}
 	};
 
 	return { actions, addAction, redoAction };
