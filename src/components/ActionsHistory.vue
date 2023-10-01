@@ -15,7 +15,7 @@ const store = useHistoryStore();
 				:action="item"
 				class="shadow-lg"
 				:index="index"
-				:isLastItem="index + 1 === store.actions.length"
+				:isLastItem="store.actions.length === index + 1"
 			/>
 		</div>
 	</div>

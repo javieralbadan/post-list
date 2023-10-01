@@ -8,7 +8,7 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-
+const isFirstItem = props.index === 0;
 const localeProps = {
 	postTitle: props.action.post.title,
 	indexFrom: props.action.indexFrom,
@@ -19,7 +19,7 @@ const localeProps = {
 <template>
 	<div
 		class="flex items-center justify-between border border-gray-100 bg-white px-2"
-		:class="{ 'rounded-t-lg': index === 0, 'rounded-b-lg': isLastItem }"
+		:class="{ 'rounded-t-lg': isFirstItem, 'rounded-b-lg': isLastItem }"
 	>
 		<p class="flex h-16 items-center py-2 text-base font-light text-gray-700">
 			{{ $t('actionItem.commitedText', localeProps) }}
