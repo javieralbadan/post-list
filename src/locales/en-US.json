@@ -1,7 +1,10 @@
 {
 	"app.title": "Sortable Post List",
+	"app.loading": "Loading...",
 	"app.noData": "There is no data available",
 	"actionItem.commitedText": "Moved {postTitle} from index {indexFrom} to index {indexTo}",
 	"actionItem.redoButtonText": "Time travel",
-	"actionsHistory.title": "List of actions commited"
+	"actionsHistory.title": "List of actions commited",
+	"actionsHistory.noData": "There is no actions commited",
+	"postList.noData": "It was not possible to load the Posts list"
 }
