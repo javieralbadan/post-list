@@ -71,13 +71,17 @@ describe('useHistoryStore', () => {
 		const historyStore = getHistoryStore(MOCK_ACTIONS_LIST);
 		expect(historyStore.actions).toHaveLength(3);
 
-		const expectedRemainingAction = historyStore.actions[0];
 		const mockActionIndex = 1;
 		historyStore.redoAction(mockActionIndex);
 
 		expect(postStore.reorderItems).toHaveBeenCalledTimes(2);
+		expect(postStore.reorderItems).nthCalledWith(1, MOCK_ACTION_3.indexTo, MOCK_ACTION_3.indexFrom);
+		expect(postStore.reorderItems).nthCalledWith(2, MOCK_ACTION_2.indexTo, MOCK_ACTION_2.indexFrom);
+
 		expect(historyStore.actions).toHaveLength(1);
-		expect(expectedRemainingAction).toEqual(MOCK_ACTION_3);
+
+		const expectedRemainingAction = historyStore.actions[0];
+		expect(expectedRemainingAction).toEqual(MOCK_ACTION_1);
 	});
 
 	it('should redo all actions from the history', () => {
@@ -92,6 +96,9 @@ describe('useHistoryStore', () => {
 		historyStore.redoAction(mockActionIndex);
 
 		expect(postStore.reorderItems).toHaveBeenCalledTimes(3);
+		expect(postStore.reorderItems).nthCalledWith(1, MOCK_ACTION_3.indexTo, MOCK_ACTION_3.indexFrom);
+		expect(postStore.reorderItems).nthCalledWith(2, MOCK_ACTION_2.indexTo, MOCK_ACTION_2.indexFrom);
+		expect(postStore.reorderItems).nthCalledWith(3, MOCK_ACTION_1.indexTo, MOCK_ACTION_1.indexFrom);
 		expect(historyStore.actions).toHaveLength(0);
 	});
 });

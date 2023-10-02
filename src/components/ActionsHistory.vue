@@ -10,7 +10,7 @@ const { actions } = store;
 <template>
 	<div class="flex h-fit flex-col rounded shadow-lg">
 		<h1 class="rounded-t bg-white p-4 text-lg">{{ $t('actionsHistory.title') }}</h1>
-		<div class="rounded bg-gray-100 p-4">
+		<div class="rounded-b bg-gray-100 p-4">
 			<NoDataMessage
 				v-if="!actions.length"
 				key-locale-text="actionsHistory.noData"

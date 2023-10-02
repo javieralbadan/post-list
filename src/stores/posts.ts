@@ -9,13 +9,13 @@ export const usePostStore = defineStore('postList', () => {
 		posts.value = itemsList;
 	};
 
-	const reorderItems = (fromIndex: number, indexTo: number) => {
-		const currentItem = posts.value[fromIndex];
+	const reorderItems = (indexFrom: number, indexTo: number) => {
+		const currentItem = posts.value[indexFrom];
 		if (!posts.value.length || !currentItem) {
 			return;
 		}
 
-		posts.value.splice(fromIndex, 1);
+		posts.value.splice(indexFrom, 1);
 		posts.value.splice(indexTo, 0, currentItem);
 	};
 
