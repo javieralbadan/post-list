@@ -32,6 +32,15 @@ describe('useHistoryStore', () => {
 		expect(historyStore.actions[1]).toEqual(MOCK_ACTION_1);
 	});
 
+	it('should return the id for the next action to add', () => {
+		setActivePinia(createPinia());
+		const historyStore = getHistoryStore(MOCK_ACTIONS_LIST);
+		expect(historyStore.actions).toHaveLength(3);
+
+		const expectedNextId = historyStore.getNextId();
+		expect(expectedNextId).toEqual(3);
+	});
+
 	it('should do not redo action from an empty history', () => {
 		setActivePinia(createPinia());
 		const postStore = usePostStore();
