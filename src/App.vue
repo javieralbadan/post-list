@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import PostList from './components/PostList.vue';
-import ActionsHistory from './components/ActionsHistory.vue';
-import LoadingMessage from './components/LoadingMessage.vue';
+import PostList from '@/components/PostList.vue';
+import ActionsHistory from '@/components/ActionsHistory.vue';
+import LoadingMessage from '@/components/LoadingMessage.vue';
+import { fetchPosts } from '@/services/posts';
+
+fetchPosts(5);
 </script>
 
 <template>

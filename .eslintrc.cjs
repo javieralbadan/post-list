@@ -23,7 +23,7 @@ module.exports = {
 		'no-unused-expressions': 'off',
 		'object-curly-spacing': [1, 'always'],
 		'prefer-template': 1,
-		'space-before-function-paren': ['error', 'never'],
+		'space-before-function-paren': ['error', 'always'],
 		quotes: [1, 'single'],
 		semi: ['error', 'always'],
 		'template-curly-spacing': 'off',

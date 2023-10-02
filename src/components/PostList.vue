@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import type PostItemInterface from '@/types/PostItem';
+import LoadingMessage from '@/components/LoadingMessage.vue';
 import PostItem from '@/components/PostItem.vue';
-import NoDataMessage from '@/components/NoDataMessage.vue';
-import { getPosts } from '@/services/posts';
+import { usePostStore } from '@/stores/posts';
+import { computed } from 'vue';
 
-const posts: PostItemInterface[] = await getPosts(5);
+const store = usePostStore();
+const posts = computed(() => store.posts);
 </script>
 
 <template>
 	<div class="flex flex-col">
 		<h1 class="text-xl text-white">{{ $t('app.title') }}</h1>
-		<NoDataMessage
-            v-if="!posts.length"
-            key-locale-text="postList.noData"
-        />
+		<LoadingMessage v-if="!posts.length" />
 		<template v-else>
 			<PostItem
 				v-for="(item, index) in posts"

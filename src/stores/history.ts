@@ -7,6 +7,10 @@ export const useHistoryStore = defineStore('actionsHistory', () => {
 	const actions = ref<ActionItem[]>([]);
 	const postsStore = usePostStore();
 
+	const getNextId = (): number => {
+		return actions.value.length;
+	};
+
 	const addAction = (action: ActionItem) => {
 		actions.value.unshift(action);
 	};
@@ -33,5 +37,5 @@ export const useHistoryStore = defineStore('actionsHistory', () => {
 		}
 	};
 
-	return { actions, addAction, redoAction };
+	return { actions, getNextId, addAction, redoAction };
 });

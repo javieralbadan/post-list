@@ -1,21 +1,22 @@
 import type PostItem from '@/types/PostItem';
 import { postsMapper } from '@/mappers/posts';
+import { usePostStore } from '@/stores/posts';
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
-export const getPosts = async (slice?: number): Promise<PostItem[]> => {
+export const fetchPosts = async (slice?: number) => {
 	try {
 		const response: Response = await fetch(`${baseUrl}/posts`);
 		if (response.status !== 200) {
-			console.log(response.statusText);
-			return [];
+			throw new Error(response.statusText);
 		}
 
 		let data: PostItem[] = await response.json();
 		data = data.slice(0, slice || data.length);
-		return postsMapper(data);
+
+		const store = usePostStore();
+		store.setItems(postsMapper(data));
 	} catch (error) {
-		console.log(error);
-		return [];
+		throw new Error(`${error}`);
 	}
 };

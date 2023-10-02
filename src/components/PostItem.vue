@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import IconChevronUp from '@/components/icons/IconChevronUp.vue';
 import IconChevronDown from '@/components/icons/IconChevronDown.vue';
+import IconChevronUp from '@/components/icons/IconChevronUp.vue';
+import type ActionItem from '@/types/ActionItem';
 import type PostItem from '@/types/PostItem';
-// import { getPosts } from '@/services/posts';
+import { useHistoryStore } from '@/stores/history';
+import { usePostStore } from '@/stores/posts';
 
 interface Props {
 	post: PostItem;
@@ -11,22 +13,40 @@ interface Props {
 }
 
 const props = defineProps<Props>();
-const isFirstItem = props.index === 0;
 const moveButtonClasses = 'text-gray-500 hover:text-gray-900 transition-all';
-const moveUp = () => {
-	console.log('🚀 ~ file: PostItem.vue:18 ~ moveUp ~ moveUp:', props.post, props.index);
+
+const storePost = usePostStore();
+const storeHistory = useHistoryStore();
+
+const commitAction = (indexFrom: number, indexTo: number) => {
+	const action: ActionItem = {
+		id: storeHistory.getNextId(),
+		post: props.post,
+		indexFrom,
+		indexTo,
+	};
+	storeHistory.addAction(action);
+	storePost.reorderItems(indexFrom, indexTo);
 };
+
+const moveUp = () => {
+	commitAction(props.index, props.index - 1);
+};
+
 const moveDown = () => {
-	console.log('🚀 ~ file: PostItem.vue:22 ~ moveDown ~ moveDown:', props.post, props.index);
+	commitAction(props.index, props.index + 1);
 };
 </script>
 
 <template>
 	<div class="my-2 flex h-20 items-center justify-between rounded bg-white p-2 text-sm font-light shadow-lg">
 		{{ post.title }}
-		<div :class="['flex h-full flex-col', isFirstItem || isLastItem ? 'justify-center' : 'justify-between']">
+		<div
+			class="flex h-full flex-col"
+			:class="[index === 0 || isLastItem ? 'justify-center' : 'justify-between']"
+		>
 			<IconChevronUp
-				v-if="!isFirstItem"
+				v-show="index !== 0"
 				aria-pressed="false"
 				:class="moveButtonClasses"
 				role="button"
@@ -34,7 +54,7 @@ const moveDown = () => {
 				@keydown="moveUp"
 			/>
 			<IconChevronDown
-				v-if="!isLastItem"
+				v-show="!isLastItem"
 				aria-pressed="false"
 				:class="moveButtonClasses"
 				role="button"
