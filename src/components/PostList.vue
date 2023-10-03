@@ -16,6 +16,7 @@ const posts = computed(() => store.posts);
 			<PostItem
 				v-for="(item, index) in posts"
 				:key="item.id"
+				class="post-item"
 				:index="index"
 				:isLastItem="posts.length === index + 1"
 				:post="item"

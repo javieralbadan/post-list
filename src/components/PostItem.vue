@@ -48,7 +48,7 @@ const moveDown = () => {
 			<IconChevronUp
 				v-show="index !== 0"
 				aria-pressed="false"
-				:class="moveButtonClasses"
+				:class="[`move-up-button ${moveButtonClasses}`]"
 				role="button"
 				@click="moveUp"
 				@keydown="moveUp"
@@ -56,7 +56,7 @@ const moveDown = () => {
 			<IconChevronDown
 				v-show="!isLastItem"
 				aria-pressed="false"
-				:class="moveButtonClasses"
+				:class="[`move-down-button ${moveButtonClasses}`]"
 				role="button"
 				@click="moveDown"
 				@keydown="moveDown"

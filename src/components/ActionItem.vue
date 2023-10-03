@@ -26,7 +26,7 @@ const redoAction = () => {
 
 <template>
 	<div
-		class="flex items-center justify-between border border-gray-200 bg-white px-2 text-sm"
+		class="flex items-center justify-between border border-gray-200 bg-white px-2 text-sm shadow-lg"
 		:class="{ 'rounded-t-lg': index === 0, 'rounded-b-lg': isLastItem }"
 	>
 		<p class="flex h-16 items-center py-2 text-base font-light text-gray-700">

@@ -9,7 +9,7 @@ const { actions } = store;
 
 <template>
 	<div class="flex h-fit flex-col rounded shadow-lg">
-		<h1 class="rounded-t bg-white p-4 text-lg">{{ $t('actionsHistory.title') }}</h1>
+		<h2 class="rounded-t bg-white p-4 text-lg">{{ $t('actionsHistory.title') }}</h2>
 		<div class="rounded-b bg-gray-100 p-4">
 			<NoDataMessage
 				v-if="!actions.length"
@@ -19,7 +19,7 @@ const { actions } = store;
 				v-for="(item, index) in actions"
 				:key="item.id"
 				:action="item"
-				class="shadow-lg"
+				class="action-item"
 				:index="index"
 				:isLastItem="actions.length === index + 1"
 			/>

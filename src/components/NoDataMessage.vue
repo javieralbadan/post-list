@@ -10,7 +10,7 @@ const { keyLocaleText = 'app.noData' } = props;
 </script>
 
 <template>
-	<div class="m-6 mx-auto flex w-fit flex-col items-center justify-center rounded bg-white p-6 text-center">
+	<div class="no-data m-6 mx-auto flex w-fit flex-col items-center justify-center rounded bg-white p-6 text-center">
 		<IconWarning class="m-4 h-16 w-16" />
 		{{ $t(keyLocaleText) }}
 	</div>
