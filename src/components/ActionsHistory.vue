@@ -10,11 +10,8 @@ const { actions } = store;
 <template>
 	<div class="flex h-fit flex-col rounded shadow-lg">
 		<h2 class="rounded-t bg-white p-4 text-lg">{{ $t('actionsHistory.title') }}</h2>
-		<div class="rounded-b bg-gray-100 p-4">
-			<NoDataMessage
-				v-if="!actions.length"
-				key-locale-text="actionsHistory.noData"
-			/>
+		<div v-auto-animate class="rounded-b bg-gray-100 p-4">
+			<NoDataMessage v-if="!actions.length" key-locale-text="actionsHistory.noData" />
 			<ActionItem
 				v-for="(item, index) in actions"
 				:key="item.id"

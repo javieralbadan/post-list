@@ -9,7 +9,7 @@ const posts = computed(() => store.posts);
 </script>
 
 <template>
-	<div class="flex flex-col">
+	<div v-auto-animate class="flex flex-col">
 		<h1 class="text-xl text-white">{{ $t('app.title') }}</h1>
 		<LoadingMessage v-if="!posts.length" />
 		<template v-else>
