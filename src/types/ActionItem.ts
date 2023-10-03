@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 import type PostItem from '@/types/PostItem';
 
 export default interface ActionItem {

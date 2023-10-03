@@ -11,11 +11,7 @@
 		width="24"
 		xmlns="http://www.w3.org/2000/svg"
 	>
-		<path
-            d="M0 0h24v24H0z"
-            fill="none"
-            stroke="none"
-        />
+		<path d="M0 0h24v24H0z" fill="none" stroke="none" />
 		<path d="M18 16v.01" />
 		<path d="M6 16v.01" />
 		<path d="M12 5v.01" />

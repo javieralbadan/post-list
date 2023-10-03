@@ -3,6 +3,9 @@ require('@rushstack/eslint-patch/modern-module-resolution');
 
 module.exports = {
 	root: true,
+	env: {
+		node: true,
+	},
 	extends: [
 		'plugin:vue/vue3-essential',
 		'eslint:recommended',
@@ -32,6 +35,6 @@ module.exports = {
 		'vue/html-self-closing': 'off',
 		'vue/singleline-html-element-content-newline': 'off',
 		'vue/attributes-order': ['warn', { alphabetical: true }],
-		'vue/max-attributes-per-line': ['error', { multiline: { max: 3 } }],
+		'vue/max-attributes-per-line': ['error', { singleline: 3, multiline: { max: 1 } }],
 	},
 };

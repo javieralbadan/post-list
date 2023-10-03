@@ -41,10 +41,7 @@ const moveDown = () => {
 <template>
 	<div class="my-2 flex h-20 items-center justify-between rounded bg-white p-2 text-sm font-light shadow-lg">
 		{{ post.title }}
-		<div
-			class="flex h-full flex-col"
-			:class="[index === 0 || isLastItem ? 'justify-center' : 'justify-between']"
-		>
+		<div class="flex h-full flex-col" :class="[index === 0 || isLastItem ? 'justify-center' : 'justify-between']">
 			<IconChevronUp
 				v-show="index !== 0"
 				aria-pressed="false"
