@@ -1,27 +1,46 @@
-# post-list
+# Building history at Temper
 
-This template should help get you started developing with Vue 3 in Vite.
+Hi there! ✌🏼😊
 
-## Recommended IDE Setup
+This is the challenge for making a Post List Sortable and saving the history to go back in the commited actions. The app was built with Vue3 and Typescript. One thing I'd like to highlight is that I wanted to take in advantage the challenge to try out by my first time Vue3, Pinia, to handle the store and, Vitest, for the unit testing 🥸.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Stack:
 
-## Type Support for `.vue` Imports in TS
+* 🚀 The webapp was build over Vite instead of Webpack
+* 🔦 Was applied format with prettier and eslint
+* 🛠️ Git hooks were implemented to ensure the product quality
+* ⛑️ Automation tests were done with playwright. See below for more details
+* 🎨 Styles were applied with Tailwind CSS, using also the plugin for classes sorting
+* 💫 Animation with [auto-animate](https://auto-animate.formkit.com/)
+* 🌐  A module for internationalization was implemented
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Implementation details:
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+About the implementation it would be nice to summarize some patterns and good practices that were implemented:
+* Separation of responsibilities: services, store, mapper
+* Main logic was handle in the store, looking to have just one source of truth and allow being accesible from all hierarchy level
+    * Here was focusing the testing tasks, implementing a TDD aproach
+* The structure with the Composition API could allow to scale up easily without fall into issues like props drilling or event bowling
+* The mapper allow us to have a standar contract between backend and client sides.
+* Error handling using try/catch
+* Early returns whenever is possible
+* Don't falling into overabstractions at starting point
+* Don't falling into micro optimizations
+* Basic responsiveness was guaranteed
+* Loading and empty states components were created to support the UX
 
-1. Disable the built-in TypeScript Extension
-    1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Possible improvements / Next steps:
 
-## Customize configuration
+* Continue working to achieve more pure functions
+* Store data in local/session storage
+* Other Vue3 improvements
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Since it was not a complex logic, other technical decisions were:
+* Don't create a back for front end to process logic before and after fetch data
+* Just one env var was created to handle the base url 
 
-## Project Setup
+Thanks for check it out! I hope you enjoy the time. See you soon. 😎
+# Project Setup
 
 ```sh
 npm install
@@ -42,7 +61,14 @@ npm run build
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
+# Runs unit testing without watch files
+npm run test
+
+# Runs unit testing watching files changes
 npm run test:unit
+
+# Runs unit testing watching files changes and generating coverage report
+npm run test:coverage
 ```
 
 ### Run End-to-End Tests with [Playwright](https://playwright.dev)
@@ -56,16 +82,22 @@ npm run build
 
 # Runs the end-to-end tests
 npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
+# Runs the tests in debug mode, able to record and get locators
+npm run test:debug
+# Runs the tests in headless mode
+npm run test:head
+# Runs the tests using the playwright ui
+npm run test:ui
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
+```
+
+### Format with [Prettier](https://prettier.io/)
+
+```sh
+npm run format
 ```
