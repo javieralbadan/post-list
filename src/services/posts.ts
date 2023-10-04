@@ -1,8 +1,9 @@
 import type PostItem from '@/types/PostItem';
 import { postsMapper } from '@/mappers/posts';
 import { usePostStore } from '@/stores/posts';
+import 'vite/client';
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = import.meta.env.BASE_URL;
 
 export const fetchPosts = async (slice?: number) => {
 	try {

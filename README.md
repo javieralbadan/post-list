@@ -6,40 +6,44 @@ This is the challenge for making a Post List Sortable and saving the history to 
 
 ## Stack:
 
-* 🚀 The webapp was build over Vite instead of Webpack
-* 🔦 Was applied format with prettier and eslint
-* 🛠️ Git hooks were implemented to ensure the product quality
-* ⛑️ Automation tests were done with playwright. See below for more details
-* 🎨 Styles were applied with Tailwind CSS, using also the plugin for classes sorting
-* 💫 Animation with [auto-animate](https://auto-animate.formkit.com/)
-* 🌐  A module for internationalization was implemented
+-   🚀 The webapp was build over Vite instead of Webpack
+-   🔦 Was applied format with prettier and eslint
+-   🛠️ Git hooks were implemented to ensure the product quality
+-   ⛑️ Automation tests were done with playwright. See below for more details
+-   🎨 Styles were applied with Tailwind CSS, using also the plugin for classes sorting
+-   💫 Animation with [auto-animate](https://auto-animate.formkit.com/)
+-   🌐 A module for internationalization was implemented
 
 ## Implementation details:
 
 About the implementation it would be nice to summarize some patterns and good practices that were implemented:
-* Separation of responsibilities: services, store, mapper
-* Main logic was handle in the store, looking to have just one source of truth and allow being accesible from all hierarchy level
-    * Here was focusing the testing tasks, implementing a TDD aproach
-* The structure with the Composition API could allow to scale up easily without fall into issues like props drilling or event bowling
-* The mapper allow us to have a standar contract between backend and client sides.
-* Error handling using try/catch
-* Early returns whenever is possible
-* Don't falling into overabstractions at starting point
-* Don't falling into micro optimizations
-* Basic responsiveness was guaranteed
-* Loading and empty states components were created to support the UX
+
+-   Separation of responsibilities: services, store, mapper
+-   Main logic was handle in the store, looking to have just one source of truth and allow being accesible from all hierarchy level
+    -   Here was focusing the testing tasks, implementing a TDD aproach
+-   The structure with the Composition API could allow to scale up easily without fall into issues like props drilling or event bowling
+-   The mapper allow us to have a standar contract between backend and client sides.
+-   Error handling using try/catch
+-   Early returns whenever is possible
+-   Don't falling into overabstractions at starting point
+-   Don't falling into micro optimizations
+-   Basic responsiveness was guaranteed
+-   Loading and empty states components were created to support the UX
 
 ## Possible improvements / Next steps:
 
-* Continue working to achieve more pure functions
-* Store data in local/session storage
-* Other Vue3 improvements
+-   Fix build process with Vite
+-   Continue working to achieve more pure functions
+-   Store data in local/session storage
+-   Other Vue3 improvements
 
 Since it was not a complex logic, other technical decisions were:
-* Don't create a back for front end to process logic before and after fetch data
-* Just one env var was created to handle the base url 
+
+-   Don't create a back for front end to process logic before and after fetch data
+-   Just one env var was created to handle the base url
 
 Thanks for check it out! I hope you enjoy the time. See you soon. 😎
+
 # Project Setup
 
 ```sh

@@ -16,8 +16,7 @@
 		"build-only": "vite build",
 		"type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
 		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-		"format": "prettier --write ./",
-		"prepare": "husky install"
+		"format": "prettier --write ./"
 	},
 	"dependencies": {
 		"@formkit/auto-animate": "^0.8.0",
